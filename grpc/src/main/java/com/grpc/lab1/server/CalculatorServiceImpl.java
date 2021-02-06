@@ -27,8 +27,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
                 B[i][j] = request.getB(i).getColumns(j);
             }
         }
-        System.out.println("Array Block A: " + Arrays.deepToString(A));
-        System.out.println("Array Block B: " + Arrays.deepToString(B));
+        System.out.println("Arrays A and B have been filled.");
     	
         int C[][]= new int[MAX][MAX];
     	C[0][0]=A[0][0]*B[0][0]+A[0][1]*B[1][0];
@@ -36,7 +35,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
     	C[1][0]=A[1][0]*B[0][0]+A[1][1]*B[1][0];
     	C[1][1]=A[1][0]*B[0][1]+A[1][1]*B[1][1];
 
-        System.out.println("Result for C: " + Arrays.deepToString(C));
+        System.out.println("Blocks A and B have been multiplied. Result is C.");
 
         BlockReply.Builder responseBuilder = BlockReply.newBuilder();
         Row.Builder rowBuilder = Row.newBuilder();
@@ -48,7 +47,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
             rowBuilder = Row.newBuilder();
         }
         BlockReply response = responseBuilder.build();
-        System.out.println("response sent to the client: " + response);
+        System.out.println("Sending response to the client...");
         reply.onNext(response);
         reply.onCompleted();
     }
@@ -66,8 +65,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
                 B[i][j] = request.getB(i).getColumns(j);
             }
         }
-        System.out.println("Array Block A: " + Arrays.deepToString(A));
-        System.out.println("Array Block B: " + Arrays.deepToString(B));
+        System.out.println("Arrays A and B have been filled.");
     	
         int C[][]= new int[MAX][MAX];
     	for (int i=0;i<C.length;i++)
@@ -78,7 +76,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
     		}
     	}
 
-        System.out.println("Result for C: " + Arrays.deepToString(C));
+        System.out.println("Blocks A and B have been multiplied. Result is C.");
 
         BlockReply.Builder responseBuilder = BlockReply.newBuilder();
         Row.Builder rowBuilder = Row.newBuilder();
@@ -90,7 +88,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
             rowBuilder = Row.newBuilder();
         }
         BlockReply response = responseBuilder.build();
-        System.out.println("response sent to the client: " + response);
+        System.out.println("Sening the response to the client...");
         reply.onNext(response);
         reply.onCompleted();
     }

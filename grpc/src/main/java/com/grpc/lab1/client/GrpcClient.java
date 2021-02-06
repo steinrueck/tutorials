@@ -27,14 +27,14 @@ public class GrpcClient {
             requestBuilder.addB(rowBuilderB);
         }
         BlockRequest request = requestBuilder.build();
-        System.out.println("This is the request from client" + request);
+        System.out.println("The request has been build.");
         BlockReply ans = BlockReply.newBuilder().build();
         try {
         ans = stub.multiplyBlock(request);
         } catch (StatusRuntimeException e) {
             System.out.println(e);
         }
-        System.out.println("Received reply from server: " + ans);
+        System.out.println("Received reply from server.");
         System.out.println("Parsing C!");
 
         int C[][] = new int[MAX][MAX];
@@ -45,7 +45,7 @@ public class GrpcClient {
                 C[i][j] = ans.getC(i).getColumns(j);
             }
         }
-        System.out.println("Result parcing C: " + Arrays.deepToString(C));
+        System.out.println("Parcing C finished.");
         return C;
     }
     static int[][] addBlock(int A[][], int B[][], CalculatorServiceGrpc.CalculatorServiceBlockingStub stub)
@@ -62,7 +62,7 @@ public class GrpcClient {
             requestBuilder.addB(rowBuilderB);
         }
         BlockRequest request = requestBuilder.build();
-        System.out.println("This is the request from client" + request);
+        System.out.println("The request has been build.");
         BlockReply ans = BlockReply.newBuilder().build();
         try {
             ans = stub.addBlock(request);
@@ -70,7 +70,7 @@ public class GrpcClient {
             System.out.println(e);
         }
 
-        System.out.println("Received reply from server: " + ans);
+        System.out.println("Received reply from server.");
         System.out.println("Parsing C!");
 
         int C[][] = new int[MAX][MAX];
@@ -81,7 +81,7 @@ public class GrpcClient {
                 C[i][j] = ans.getC(i).getColumns(j);
             }
         }
-        System.out.println("Result parcing C: " + Arrays.deepToString(C));
+        System.out.println("Parcing C finished.");
         return C;
     }
     public static void main(String[] args)
