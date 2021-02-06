@@ -3,8 +3,6 @@ package com.grpc.lab1.server;
 import com.grpc.lab1.BlockRequest;
 import com.grpc.lab1.BlockReply.Row;
 
-import java.util.Arrays;
-
 import com.grpc.lab1.BlockReply;
 import com.grpc.lab1.CalculatorServiceGrpc.CalculatorServiceImplBase;
 
@@ -17,7 +15,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
     @Override
     public void multiplyBlock(BlockRequest request, StreamObserver<BlockReply> reply)
     {
-        System.out.println("multiplyBlock -> Request received from client:\n" + request);
+        System.out.println("multiplyBlock -> Request received from client.");
         System.out.println("now doing stuff on the server");
         int A[][] = new int [MAX][MAX];
         int B[][] = new int [MAX][MAX];
@@ -55,7 +53,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
     @Override
     public void addBlock(BlockRequest request, StreamObserver<BlockReply> reply)
     {
-        System.out.println("addBlock: -> Request received from client:\n" + request);
+        System.out.println("addBlock: -> Request received from client.");
         System.out.println("now doing stuff on the server");
         int A[][] = new int [MAX][MAX];
         int B[][] = new int [MAX][MAX];
@@ -88,7 +86,7 @@ public class CalculatorServiceImpl extends CalculatorServiceImplBase
             rowBuilder = Row.newBuilder();
         }
         BlockReply response = responseBuilder.build();
-        System.out.println("Sening the response to the client...");
+        System.out.println("Sending the response to the client...");
         reply.onNext(response);
         reply.onCompleted();
     }
