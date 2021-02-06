@@ -86,7 +86,7 @@ public class GrpcClient {
     }
     public static void main(String[] args)
     {
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8081).usePlaintext().build();
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("100.24.18.176", 8081).usePlaintext().build();
         CalculatorServiceGrpc.CalculatorServiceBlockingStub stub = CalculatorServiceGrpc.newBlockingStub(channel);
 
         int A[][] = { {1, 2, 3, 4}, 
