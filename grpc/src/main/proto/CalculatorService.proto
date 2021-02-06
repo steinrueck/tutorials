@@ -1,0 +1,33 @@
+syntax = "proto3";
+option java_multiple_files=true;
+option java_package="com.grpc.lab1";
+
+message BlockRequest{
+  message Row {
+    repeated int32 columns = 1;
+  }
+  repeated Row a = 1;
+  repeated Row b = 2;
+}
+message BlockReply {
+  message Row {
+    repeated int32 columns = 1;
+  }
+  repeated Row c = 1;
+}
+
+service CalculatorService{
+  rpc MultiplyBlock(BlockRequest) returns (BlockReply){};
+  rpc AddBlock(BlockRequest) returns (BlockReply){};
+}
+
+// message AddRequest{
+//  int32 a = 1;
+//  int32 b = 2;
+// }
+// message AddReply{
+//   int32 c = 1;
+// }
+// service CalculatorService{
+//   rpc Add(AddRequest) returns (AddReply){}
+// }
